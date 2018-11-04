@@ -2,7 +2,26 @@
 
 {% block content %}
     <h1>Hi, {{ current_user.username }}!</h1>
+    <!--
     {% for post in posts %}
     <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
     {% endfor %}
+    -->
+    <hr>
+    <h1>Raw Data:</h1>
+    <table>      
+    {% for entry in data_table %}
+	<tr valign="top">
+            <td><p> <b>Data:</b> {{ entry.data }} <b>recorded at:</b> <d>{{ entry.date }}</d> <b>with RSSI =</b> {{ entry.rssi }}</p></td>
+        </tr>
+    {% endfor %}   
+    </table>
+
 {% endblock %}
+
+
+    <table>
+        <tr valign="top">
+            <td>{{ post.author.username }} says:<br>{{ post.body }}</td>
+        </tr>
+    </table>

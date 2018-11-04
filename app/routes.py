@@ -12,6 +12,7 @@ from app import db
 from app.forms import RegistrationForm
 from datetime import datetime
 from app.forms import EditProfileForm
+from app.models import Data
 
 
 @app.before_request
@@ -50,7 +51,9 @@ def index():
             'body': 'The Avengers movie was so cool!'
         }
     ]
-    return render_template('index.html', title='Home', posts=posts)
+    data = Data.query.all()
+    print(data)
+    return render_template('index.html', title='Home', posts=posts, data_table = data)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

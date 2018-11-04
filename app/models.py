@@ -37,6 +37,16 @@ class Post(db.Model):
     def __repr__(self):
         return '<Post {}>'.format(self.body)
 
+class Data(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    data = db.Column(db.String(140))
+    date = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    rssi = db.Column(db.Integer)
+
+    def __repr__(self):
+        return '<Data {}>'.format(self.data)
+
+
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
