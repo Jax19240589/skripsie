@@ -52,7 +52,7 @@ def index():
         }
     ]
     data = Data.query.all()
-    print(data)
+    #print(data)
     return render_template('index.html', title='Home', posts=posts, data_table = data)
 
 @app.route('/login', methods=['GET', 'POST'])
